@@ -2,6 +2,9 @@
   <v-app id="app">
     <v-navigation-drawer
       v-model="drawer"
+      v-touch="{
+        down: () => swipeDown(),
+      }"
       :mobile-break-point="960"
       :width="340"
       :mini-variant="miniVariant"
@@ -193,6 +196,10 @@ export default {
   methods: {
     reset() {
       this.filters = { ...DEFAULT_FILTERS }
+    },
+    swipeDown() {
+      alert("foo!")
+      this.$emit("closeDrawer")
     },
   },
 }
